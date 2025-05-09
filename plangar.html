@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plangar - Partage de vidéos</title>
+    <link rel="stylesheet" href="plangar.css">
+</head>
+<body>
+<header>
+    <h1>🎬 Plangar</h1>
+    <nav>
+        <a href="#videos">Vidéos</a>
+        <a href="#stats">Statistiques</a>
+        <button class="btn" onclick="toggleDarkMode()">🌙 Mode sombre</button>
+        <button class="btn profile-btn" onclick="toggleProfileMenu()">⚙️ Profil</button>
+    </nav>
+    <button class="add-video-btn" onclick="toggleAddVideo()">➕</button>
+	<div id="add-video-menu" class="hidden">
+    <h2>➕ Ajouter une vidéo</h2>
+    <input type="text" id="videoUrl" placeholder="Lien YouTube">
+    <input type="text" id="videoDesc" placeholder="Description">
+    <input type="file" id="videoFile" accept="video/*">
+    <button class="btn" onclick="addVideo()">Ajouter</button>
+</div>
+</header>
+
+
+
+
+   <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Rechercher..." onkeyup="searchVideo()">
+        <button class="search-btn"> 🔍</button>
+    </div>
+<div id="profile-menu" class="hidden">
+    <h2>⚙️ Configuration du Profil</h2>
+    <img id="avatar" src="avatar-default.png" alt="Avatar">
+    <input type="file" id="avatarUpload" accept="image/*" onchange="previewAvatar()">
+    <input type="text" id="username" placeholder="Votre nom">
+    <button class="btn" onclick="uploadAvatar()">💾 Enregistrer Avatar</button>
+    <button class="btn" onclick="saveUsername()">💾 Enregistrer Nom</button>
+</div>
+
+
+    <section id="intro">
+        <h2>Bienvenue sur Plangar !</h2>
+        <p>Ajoutez et partagez vos vidéos préférées.</p>
+      
+    </section>
+
+
+    <section id="videos">
+        <h2>📽️ Vidéos partagées</h2>
+        <select id="sortVideos" onchange="sortVideo()">
+            <option value="latest">🔄 Récentes</option>
+            <option value="popular">🔥 Populaires</option>
+        </select>
+        <div id="video-list"></div>
+    </section>
+
+    <section id="stats">
+        <h2>📊 Statistiques</h2>
+        <p>Total vidéos partagées : <span id="totalVideos">0</span></p>
+        <p>Total likes : <span id="totalLikes">0</span></p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
